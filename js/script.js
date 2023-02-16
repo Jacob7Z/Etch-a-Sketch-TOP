@@ -6,11 +6,10 @@ body.appendChild(container);
 
 const btn = document.querySelector('.btn'); // el button
 
+
 let initNum = 16;  // init grid number
 
-
-function createHorizontalSquare(num){ // creates the horizontal divs
-    
+function createHorizontalSquare(num){ // creates the horizontal divs    
     if (num>100){
         alert('MAX IS 100'); // the max grid is 100 for performance
     }else{
@@ -25,8 +24,6 @@ createHorizontalSquare(initNum);
 
 
 let nodeBoxHo = document.querySelectorAll('.boxHo'); // get a node list of the horizontal divs to be used in creating and removing vertical divs 
-// console.log(nodeBoxHo.length);
-
 
 function createVericalSquare(num,horizontalNode){  // creates vertical divs
     horizontalNode.forEach(boxH => {  // for each horizontal div create n number of vertical divs
@@ -36,16 +33,11 @@ function createVericalSquare(num,horizontalNode){  // creates vertical divs
             boxH.appendChild(boxVe);
             
             boxVe.onmouseover  = ()=>   // event listener to hover
-            boxVe.style.backgroundColor = 'black'; // change background when hover
-            
+            boxVe.style.backgroundColor = 'black'; // change background when hover 
         };        
     });    
-    
 }
 createVericalSquare(initNum,nodeBoxHo);
-
-
-
 
 
 function removeSquares(){ //removes the grid
@@ -54,6 +46,7 @@ function removeSquares(){ //removes the grid
         container.removeChild(box); 
     });    
 }
+
 
 function buttonClicked(){ //removes grid , creates new grid based on prompt return
     let userNum = prompt('Enter your number');
