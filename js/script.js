@@ -6,7 +6,7 @@ body.appendChild(container);
 
 const btn = document.querySelector('.btn'); // el button
 
-let num = 16;  // init grid number
+let initNum = 16;  // init grid number
 
 
 function createHorizontalSquare(num){ // creates the horizontal divs
@@ -17,15 +17,15 @@ function createHorizontalSquare(num){ // creates the horizontal divs
         container.appendChild(boxHo);
     };
 }
-createHorizontalSquare(num);
+createHorizontalSquare(initNum);
 
 
 let nodeBoxHo = document.querySelectorAll('.boxHo'); // get a node list of the horizontal divs to be used in creating vertical divs 
 // console.log(nodeBoxHo.length);
-let nodeBoxVe = document.querySelectorAll('.boxVe');
 
-function createVericalSquare(num){  // creates vertical divs
-    nodeBoxHo.forEach(boxH => {  // for each horizontal div create n number of vertical divs
+
+function createVericalSquare(num,horizontalNode){  // creates vertical divs
+    horizontalNode.forEach(boxH => {  // for each horizontal div create n number of vertical divs
         for(i=0; i<num ; i++){
             const boxVe = document.createElement('div');
             boxVe.classList.add('boxVe');
@@ -38,23 +38,26 @@ function createVericalSquare(num){  // creates vertical divs
     });    
     
 }
-createVericalSquare(num);
+createVericalSquare(initNum,nodeBoxHo);
 
 
 
 
 
-btn.addEventListener('click',buttonClicked);
-
-function removeSquares(nodeBoxHo){ //removes the grid
-    nodeBoxHo.forEach(box => {  //loops around the container elements and removes all divs
+function removeSquares(){ //removes the grid
+    let targetNode = document.querySelectorAll('.boxHo');
+    targetNode.forEach(box => {  //loops around the container elements and removes all divs
         container.removeChild(box); 
     });    
 }
 
 function buttonClicked(){
-    // let userNum = prompt('Enter your number');
-        
-    removeSquares(nodeBoxHo);
+    let userNum = prompt('Enter your number');
+    removeSquares();
+    
+    createHorizontalSquare(userNum);
+    const newHoNode = document.querySelectorAll('.boxHo'); 
+    createVericalSquare(userNum,newHoNode);
     
 }
+btn.addEventListener('click',buttonClicked);
