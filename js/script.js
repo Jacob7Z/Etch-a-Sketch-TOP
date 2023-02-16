@@ -65,7 +65,7 @@ function buttonClicked(){ //removes grid , creates new grid based on prompt retu
  
     let ho = document.querySelectorAll('.boxHo');
     let ve = document.querySelectorAll('.boxVe');
-    console.log('ho = ' + ho.length + ' ve = ' + ve.length);
+    console.log('ho = ' + ho.length + ' ve = ' + ve.length); // log how many horizontal and vertical divs
 }
 btn.addEventListener('click',buttonClicked);
 

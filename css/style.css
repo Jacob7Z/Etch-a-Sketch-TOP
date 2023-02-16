@@ -31,5 +31,13 @@ body{
 }
 
 .btn{
-    
+    background-color: #3882f6;
+    color: whitesmoke;
+    font-size: 16px;
+    border: #3882f6;
+    padding: 7px 25px 7px 25px;
+    border-radius: 8px;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
