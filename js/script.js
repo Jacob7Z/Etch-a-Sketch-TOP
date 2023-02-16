@@ -11,11 +11,15 @@ let initNum = 16;  // init grid number
 
 function createHorizontalSquare(num){ // creates the horizontal divs
     
-    for(i=0 ; i<num ; i++){ 
-        const boxHo = document.createElement('div');
-        boxHo.classList.add('boxHo');
-        container.appendChild(boxHo);
-    };
+    if (num>100){
+        alert('MAX IS 100'); // the max grid is 100 for performance
+    }else{
+        for(i=0 ; i<num ; i++){ 
+            const boxHo = document.createElement('div');
+            boxHo.classList.add('boxHo');
+            container.appendChild(boxHo);
+        };
+    }
 }
 createHorizontalSquare(initNum);
 
@@ -58,6 +62,11 @@ function buttonClicked(){ //removes grid , creates new grid based on prompt retu
     createHorizontalSquare(userNum); // make horizontal divs
     const newHoNode = document.querySelectorAll('.boxHo'); // select horizontal divs
     createVericalSquare(userNum,newHoNode); // create vertial squares inside horizontal divs
-    
+ 
+    let ho = document.querySelectorAll('.boxHo');
+    let ve = document.querySelectorAll('.boxVe');
+    console.log('ho = ' + ho.length + ' ve = ' + ve.length);
 }
 btn.addEventListener('click',buttonClicked);
+
+
