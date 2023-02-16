@@ -20,7 +20,7 @@ function createHorizontalSquare(num){ // creates the horizontal divs
 createHorizontalSquare(initNum);
 
 
-let nodeBoxHo = document.querySelectorAll('.boxHo'); // get a node list of the horizontal divs to be used in creating vertical divs 
+let nodeBoxHo = document.querySelectorAll('.boxHo'); // get a node list of the horizontal divs to be used in creating and removing vertical divs 
 // console.log(nodeBoxHo.length);
 
 
@@ -51,13 +51,13 @@ function removeSquares(){ //removes the grid
     });    
 }
 
-function buttonClicked(){
+function buttonClicked(){ //removes grid , creates new grid based on prompt return
     let userNum = prompt('Enter your number');
     removeSquares();
     
-    createHorizontalSquare(userNum);
-    const newHoNode = document.querySelectorAll('.boxHo'); 
-    createVericalSquare(userNum,newHoNode);
+    createHorizontalSquare(userNum); // make horizontal divs
+    const newHoNode = document.querySelectorAll('.boxHo'); // select horizontal divs
+    createVericalSquare(userNum,newHoNode); // create vertial squares inside horizontal divs
     
 }
 btn.addEventListener('click',buttonClicked);
