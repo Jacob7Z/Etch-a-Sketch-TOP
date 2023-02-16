@@ -4,12 +4,12 @@ const container = document.createElement('div'); // create the container
 container.classList.add('container');
 body.appendChild(container);
 
-let num = 20;  
+let num = 20;  // grid number
 
 
-function createHorizontalSquare(num){
+function createHorizontalSquare(num){ // creates the horizontal divs
     
-    for(i=0 ; i<num ; i++){
+    for(i=0 ; i<num ; i++){ 
         const boxHo = document.createElement('div');
         boxHo.classList.add('boxHo');
         container.appendChild(boxHo);
@@ -18,16 +18,20 @@ function createHorizontalSquare(num){
 createHorizontalSquare(num);
 
 
-let nodeBoxHo = document.querySelectorAll('.boxHo'); 
+let nodeBoxHo = document.querySelectorAll('.boxHo'); // get a node list of the horizontal divs to be used in creating vertical divs 
 console.log(nodeBoxHo.length);
 
 
-function createVericalSquare(num){
-    nodeBoxHo.forEach(boxH => {
+function createVericalSquare(num){  // creates vertical divs
+    nodeBoxHo.forEach(boxH => {  // for each horizontal div create n number of vertical divs
         for(i=0; i<num ; i++){
             const boxVe = document.createElement('div');
             boxVe.classList.add('boxVe');
             boxH.appendChild(boxVe);
+            
+            boxVe.onmouseover  = ()=>   // event listener to hover
+            boxVe.style.backgroundColor = 'black'; // change background when hover
+            
         };        
     });    
     
@@ -35,25 +39,4 @@ function createVericalSquare(num){
 createVericalSquare(num);
 
 
-
-
-
-
-
-
-// for(i=0 ; i<num ; i++){
-//     const boxHo = document.createElement('div');
-//     boxHo.classList.add('boxHo');
-//     container.appendChild(boxHo);
-    
-//     if(nodeBoxHo.length < num){
-//         continue;
-//     }else{
-//         for(i=0; i<num ; i++){
-//             const boxVe = document.createElement('div');
-//             boxVe.classList.add('boxVe');
-//             boxHo.appendChild(boxVe);
-//         }
-//     };
-// };
 
